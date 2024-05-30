@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search.cpp                                         :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 16:41:25 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/29 17:18:54 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/05/30 22:10:21 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void	printInfo(std::string& info)
+void	PhoneBook::addContact()
 {
-	std::cout << '|';
-	if (info.length() > 9)
-		std::cout << std::setw(9) << info.substr(0, 9) << ".";
-	else
-		std::cout << std::setw(10) << info;
-}
-
-void	Contact::printContact()
-{
-	printInfo(firstName);
-	printInfo(lastName);
-	printInfo(nickName);
-	std::cout << '|' << std::endl;
-}
-
-void	Contact::displayInfo(int index)
-{
-	std::cout << "-----------------CONTACT #" << index << "-----------------" <<std::endl;
-	std::cout << "First name           : " << firstName << std::endl;
-	std::cout << "Last name            : " << lastName << std::endl;
-	std::cout << "Nickname             : " << nickName << std::endl;
-	std::cout << "Phone number         : " << phoneNumber << std::endl;
-	std::cout << "Darkest secret       : " << darkestSecret << std::endl;
+	users[index++].setContact();
+	if (index == 8)
+		index = 0;
 }
 
 void	PhoneBook::searchContact()
