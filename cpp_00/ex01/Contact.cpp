@@ -6,11 +6,13 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:23:34 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/30 22:10:25 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/05/31 16:02:30 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
+
+Contact::Contact(){ full = false; }
 
 std::string	get_input(std::string msg)
 {

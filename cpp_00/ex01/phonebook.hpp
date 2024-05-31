@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/29 16:39:38 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/05/31 16:03:36 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <array>
 # include <iostream>
 # include <cctype>
 # include <iomanip>
@@ -23,7 +22,7 @@
 class Contact
 {
 public :
-	Contact() : full(false), firstName(""), lastName(""), nickName(""), phoneNumber(""), darkestSecret("") {}
+	Contact();
 	bool	full;
 	void	setContact();
 	void	printContact();
@@ -46,7 +45,7 @@ public :
 
 private :
 	int	index;
-	std::array <Contact, 8> users;
+	Contact users[8];
 };
 
 #endif
