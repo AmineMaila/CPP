@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:58 by mmaila           ###   ########.fr       */
+/*   Created: 2024/05/31 18:29:27 by mmaila            #+#    #+#             */
+/*   Updated: 2024/05/31 18:48:21 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include <iostream>
+# include <string>
 
-# include <iostream>
-# include <cctype>
-# include <iomanip>
-# include "Contact.hpp"
-
-# define MAX_CONTACTS 8
-
-class PhoneBook
+int main()
 {
-public :
-	PhoneBook() : index(0) {}
-	void	addContact();
-	void	searchContact();
+	std::string var = "HI THIS IS BRAIN";
+	std::string *stringPTR = &var;
+	std::string &stringREF = var;
 
-private :
-	int	index;
-	Contact users[8];
-};
-
-#endif
+	std::cout << &var << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	std::cout << var << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+}

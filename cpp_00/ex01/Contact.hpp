@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:58 by mmaila           ###   ########.fr       */
+/*   Created: 2024/05/31 18:39:07 by mmaila            #+#    #+#             */
+/*   Updated: 2024/05/31 18:47:51 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include <iostream>
-# include <cctype>
-# include <iomanip>
-# include "Contact.hpp"
+#include <string>
 
-# define MAX_CONTACTS 8
-
-class PhoneBook
+class Contact
 {
 public :
-	PhoneBook() : index(0) {}
-	void	addContact();
-	void	searchContact();
+	Contact();
+	bool	full;
+	void	setContact();
+	void	printContact();
+	void	displayInfo(int index);
 
 private :
-	int	index;
-	Contact users[8];
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
 };
 
 #endif

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:58 by mmaila           ###   ########.fr       */
+/*   Created: 2024/05/31 16:19:39 by mmaila            #+#    #+#             */
+/*   Updated: 2024/05/31 16:37:23 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <cctype>
-# include <iomanip>
-# include "Contact.hpp"
-
-# define MAX_CONTACTS 8
-
-class PhoneBook
+Zombie::~Zombie()
 {
-public :
-	PhoneBook() : index(0) {}
-	void	addContact();
-	void	searchContact();
+	std::cout << name << " perished." << std::endl;
+}
 
-private :
-	int	index;
-	Contact users[8];
-};
+void	Zombie::call(std::string z)
+{
+	name = z;
+}
 
-#endif
+void	Zombie::anounce(void)
+{
+	std::cout << name << " :  BraiiiiiiinnnzzzZ..." << std::endl;
+}

@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:58 by mmaila           ###   ########.fr       */
+/*   Created: 2024/05/31 20:11:33 by mmaila            #+#    #+#             */
+/*   Updated: 2024/06/01 14:42:47 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "HumanB.hpp"
 
-# include <iostream>
-# include <cctype>
-# include <iomanip>
-# include "Contact.hpp"
-
-# define MAX_CONTACTS 8
-
-class PhoneBook
+void	HumanB::setWeapon(Weapon equipment)
 {
-public :
-	PhoneBook() : index(0) {}
-	void	addContact();
-	void	searchContact();
+	weapon = equipment;
+}
 
-private :
-	int	index;
-	Contact users[8];
-};
-
-#endif
+void	HumanB::attack(void)
+{
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+}

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:03:20 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:39:58 by mmaila           ###   ########.fr       */
+/*   Created: 2024/05/31 18:37:43 by mmaila            #+#    #+#             */
+/*   Updated: 2024/06/01 15:05:55 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-# include <iostream>
-# include <cctype>
-# include <iomanip>
-# include "Contact.hpp"
+#include <string>
+#include <iostream>
 
-# define MAX_CONTACTS 8
-
-class PhoneBook
+class Weapon
 {
 public :
-	PhoneBook() : index(0) {}
-	void	addContact();
-	void	searchContact();
+	Weapon(std::string type) type(type) {}
+	const	std::string& getType();
+	void	setType(std::string newType);
 
 private :
-	int	index;
-	Contact users[8];
+	std::string	type;
+
 };
 
 #endif
