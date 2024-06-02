@@ -12,12 +12,21 @@
 
 #include "HumanB.hpp"
 
-void	HumanB::setWeapon(Weapon equipment)
+HumanB::HumanB(std::string name)
 {
-	weapon = equipment;
+	this->name = name;
+	weapon = NULL;
+}
+
+void	HumanB::setWeapon(Weapon &equipment)
+{
+	weapon = &equipment;
 }
 
 void	HumanB::attack(void)
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	if (weapon)
+		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+	else
+		std::cout << name << " doesn't have a weapon" << std::endl;
 }

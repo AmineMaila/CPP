@@ -12,13 +12,10 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(void)
-{
-	name = "";
-	weapon.setType("");
-}
-
 void	HumanA::attack(void)
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	if (!weapon.getType().empty())
+		std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	else
+		std::cout << name << " doesn't have a weapon" << std::endl;
 }

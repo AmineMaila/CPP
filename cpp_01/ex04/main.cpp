@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:46:19 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/01 14:41:43 by mmaila           ###   ########.fr       */
+/*   Created: 2024/06/01 17:08:51 by mmaila            #+#    #+#             */
+/*   Updated: 2024/06/02 20:39:38 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#include <iostream>
+#include "Replace.hpp"
 
-#include <string>
-#include "Weapon.hpp"
-
-class HumanB
+int main(int ac, char *av[])
 {
-public :
-	HumanB(std::string name);
-	void	attack(void);
-	void	setWeapon(Weapon &equipment);
-
-private :
-	std::string	name;
-	Weapon		*weapon;
-
-};
-
-#endif
+    if (ac != 4)
+    {
+        std::cout << "invalid arguments!" << std::endl;
+        return (1);
+    }
+    try
+    {
+        Replace files(av[1]);
+        files.replace(av[2], av[3]);
+    }
+    catch (std::runtime_error &err)
+    {
+        std::cerr << "Exception caught : " << err.what() << std::endl;
+    }
+}

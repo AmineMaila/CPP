@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 19:46:19 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/01 14:41:43 by mmaila           ###   ########.fr       */
+/*   Created: 2024/06/02 15:23:21 by mmaila            #+#    #+#             */
+/*   Updated: 2024/06/02 20:39:35 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef REPLACE_HPP
+# define REPLACE_HPP
 
 #include <string>
-#include "Weapon.hpp"
+#include <fstream>
 
-class HumanB
+class Replace
 {
 public :
-	HumanB(std::string name);
-	void	attack(void);
-	void	setWeapon(Weapon &equipment);
+	Replace(std::string file1);
+	~Replace();
 
+    void	replace(std::string old,std::string _new);
+    
 private :
-	std::string	name;
-	Weapon		*weapon;
-
+    std::ifstream	infile;
+    std::ofstream	outfile;
 };
 
 #endif
