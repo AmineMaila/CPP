@@ -5,28 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/01 17:08:51 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/02 23:59:00 by mmaila           ###   ########.fr       */
+/*   Created: 2024/06/03 15:26:03 by mmaila            #+#    #+#             */
+/*   Updated: 2024/06/03 16:51:41 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Replace.hpp"
+#include "Harl.hpp"
 
-int main(int ac, char *av[])
+int main()
 {
-    if (ac != 4)
+    std::string line;
+    Harl        harl2;
+
+    while (!std::cin.eof())
     {
-        std::cout << "invalid arguments!" << std::endl;
-        return (1);
-    }
-    try
-    {
-        Replace file(av[1]);
-        file.replace(av[2], av[3]);
-    }
-    catch (std::runtime_error &err)
-    {
-        std::cerr << "Exception caught : " << err.what() << std::endl;
+        std::cout << "Harl : ";
+        std::getline(std::cin, line);
+        harl2.complain(line);
     }
 }
