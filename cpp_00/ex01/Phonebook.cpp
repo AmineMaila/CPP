@@ -6,7 +6,7 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 16:41:25 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 15:51:13 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/06/04 15:20:04 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	PhoneBook::searchContact()
 		std::cout << "Display info for index : ";
 		std::cin >> index;
 		if (std::cin.eof())
-			exit(1);
+			break ;
 		if (std::cin.good() && index >= 0 && index <= 7 && users[index].full)
 		{
 			users[index].displayInfo(index);
