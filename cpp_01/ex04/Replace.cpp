@@ -6,7 +6,7 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:10:24 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/02 20:36:50 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/11 18:09:43 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Replace::Replace(std::string file1)
     infile.open(file1);
     if (!infile.is_open())
         throw std::runtime_error("failed to open " + file1);
-    outfile.open("outfile");
+    outfile.open(file1.append(".replace"));
     if (!outfile.is_open())
     {
         infile.close();
@@ -53,6 +53,8 @@ void    Replace::replace(std::string old,std::string _new)
     std::string line;
     while (std::getline(infile, line))
     {
+        if (!infile.eof())
+            line += '\n';
         while (true)
         {
             int index = _strstr(line, old);
@@ -62,7 +64,5 @@ void    Replace::replace(std::string old,std::string _new)
             line.insert(index, _new);
         }
         outfile << line;
-        if (!infile.eof())
-            outfile << std::endl;
     }
 }
