@@ -6,11 +6,11 @@
 #    By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 15:35:00 by mmaila            #+#    #+#              #
-#    Updated: 2024/05/30 22:02:00 by mmaila           ###   ########.fr        #
+#    Updated: 2024/07/10 20:37:49 by mmaila           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP= c++ -std=c++98
+CPP= c++
 
 FLAGS= -Wall -Werror -Wextra
 

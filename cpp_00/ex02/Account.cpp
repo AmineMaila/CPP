@@ -6,14 +6,11 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 14:52:10 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/30 21:59:04 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/10 21:49:14 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <sstream>
-#include <ctime>
-#include <iomanip>
 #include "Account.hpp"
 
 int Account::_nbAccounts = 0;
@@ -23,12 +20,24 @@ int Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp( void )
 {
-	std::time_t currentTime = std::time(nullptr);
-    std::tm* localTime = std::localtime(&currentTime);
-    std::ostringstream oss;
-    oss << std::put_time(localTime, "[%Y%m%d_%H%M%S] ");
-	std::string formattedTime = oss.str();
-    std::cout << formattedTime;
+	time_t currentTime = time(NULL);
+	struct tm *time = localtime(&currentTime);
+	std::cout << '[' << 1900 + time->tm_year;
+	if (time->tm_mon < 10)
+		std::cout << '0';
+	std::cout << time->tm_mon + 1;
+	if (time->tm_mday < 10)
+		std::cout << '0';
+	std::cout << time->tm_mday << '_';
+	if (time->tm_hour < 10)
+		std::cout << '0';
+	std::cout << time->tm_hour;
+	if (time->tm_min < 10)
+		std::cout << '0';
+	std::cout << time->tm_min;
+	if (time->tm_sec < 10)
+		std::cout << '0';
+	std::cout << time->tm_sec << "] ";
 }
 
 Account::Account( int initial_deposit )

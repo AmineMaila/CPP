@@ -6,11 +6,21 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 16:41:25 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/04 15:20:04 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/10 20:47:27 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+
+PhoneBook::PhoneBook() : index(0) {}
+
+bool	is_digit(std::string& str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+		if (str[i] < '0' || str[i] > '9')
+			return (false);
+	return (true);
+}
 
 void	PhoneBook::addContact()
 {
@@ -30,21 +40,26 @@ void	PhoneBook::searchContact()
 		users[i].printContact();
 	}
 	std::cout << "|-------------------------------------------|" << std::endl;
-	int	index;
+
+	std::string	input;
+	int			index;
 
 	while (true)
 	{
 		std::cout << "Display info for index : ";
-		std::cin >> index;
+		std::getline(std::cin, input);
 		if (std::cin.eof())
-			break ;
-		if (std::cin.good() && index >= 0 && index <= 7 && users[index].full)
+			exit(0);
+		if (is_digit(input))
 		{
-			users[index].displayInfo(index);
-			break;
+			const char *cinput = input.c_str();
+			index = std::atoi(cinput);
+			if (index >= 0 && index <= 7 && users[index].full)
+			{
+				users[index].displayInfo(index);
+				break;
+			}
 		}
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "invalid index!" << std::endl;
 	}
 }
