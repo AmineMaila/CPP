@@ -6,7 +6,7 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:07:16 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:48:09 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/14 16:24:21 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 class Zombie
 {
 public :
+	Zombie();
 	~Zombie();
 	void	anounce( void );
 	void	call(std::string z);
+
 private :
 	std::string name;
 };

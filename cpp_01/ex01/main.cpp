@@ -6,7 +6,7 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:06:27 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 18:28:48 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/14 16:17:25 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int main(void)
 {
-	int n = 8;
-	Zombie *zombie = zombieHorde(n, "ZOMBS");
-	for (int i = 0; i < n; i++)
-		zombie[i].anounce();
-	delete[] zombie;
+	try
+	{
+		Zombie *zombie = zombieHorde(3, "ZOMBS");
+		for (int i = 0; i < 3; i++)
+			zombie[i].anounce();
+		delete[] zombie;
+	}
+	catch (std::bad_alloc& e)
+	{
+		std::cerr << "Error : allocation failed" << std::endl;
+	}
 }

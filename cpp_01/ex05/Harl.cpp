@@ -6,11 +6,14 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:26:18 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/03 16:48:29 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/12 15:58:40 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+Harl::Harl( void ){}
+Harl::~Harl( void ){}
 
 void    Harl::debug( void )
 {
@@ -32,9 +35,6 @@ void    Harl::error( void )
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-Harl::Harl( void ){}
-Harl::~Harl( void ){}
-
 void    Harl::complain( std::string level )
 {
     void (Harl::*cry[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
@@ -45,5 +45,4 @@ void    Harl::complain( std::string level )
         i++;
     if (i != 4)
         (this->*cry[i])();
-    // using this : cry[i] is a pointer to a member function, not a regular function. Member function pointers require an instance to call the function
 }

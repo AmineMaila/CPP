@@ -6,7 +6,7 @@
 #    By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 15:35:00 by mmaila            #+#    #+#              #
-#    Updated: 2024/05/31 18:44:12 by mmaila           ###   ########.fr        #
+#    Updated: 2024/07/16 11:54:47 by mmaila           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp ./Zombie.hpp
+%.o : %.cpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean : 

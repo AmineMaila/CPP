@@ -6,11 +6,13 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:19:39 by mmaila            #+#    #+#             */
-/*   Updated: 2024/05/31 16:37:23 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/12 09:12:55 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie() {}
 
 Zombie::~Zombie()
 {

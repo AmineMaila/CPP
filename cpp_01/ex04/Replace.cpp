@@ -6,63 +6,65 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:10:24 by mmaila            #+#    #+#             */
-/*   Updated: 2024/07/11 18:09:43 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/14 21:59:47 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
-
-int _strstr(std::string &line, std::string &word)
-{
-    for (size_t i = 0; i < line.length(); i++)
-    {
-        size_t j = 0;
-        while (line[i] == word[j])
-        {
-            if (j == word.length() - 1)
-                return (i - j);
-            j++;
-            i++;
-        }
-        i -= j;
-    }
-    return (-1);
-}
 
 Replace::Replace(std::string file1)
 {
     infile.open(file1);
     if (!infile.is_open())
         throw std::runtime_error("failed to open " + file1);
-    outfile.open(file1.append(".replace"));
-    if (!outfile.is_open())
+}
+
+Replace::~Replace() {}
+
+int _strstr(std::string &line, std::string &word, size_t lastIndex)
+{
+    for (size_t i = lastIndex; i < line.length(); i++)
     {
-        infile.close();
-        throw std::runtime_error("failed to open outfile");
+        size_t j = 0;
+        while (line[i + j] == word[j])
+        {
+            if (j == word.length() - 1)
+                return (i);
+            j++;
+        }
     }
+    return (-1);
 }
 
-Replace::~Replace()
+void    Replace::replace(std::string old, std::string _new, std::string out)
 {
-    infile.close();
-    outfile.close();
-}
+    std::ofstream   outfile;
+    std::string     line;
+    std::string     all;
 
-void    Replace::replace(std::string old,std::string _new)
-{
-    std::string line;
     while (std::getline(infile, line))
     {
         if (!infile.eof())
             line += '\n';
-        while (true)
-        {
-            int index = _strstr(line, old);
-            if (index == -1)
-                break ;
-            line.erase(index, old.length());
-            line.insert(index, _new);
-        }
-        outfile << line;
+        all.append(line);
     }
+    if (all.empty())
+    {
+        std::cerr << "Error : empty file" << std::endl;
+        return ;
+    }
+    int index = 0;
+    while (true)
+    {
+        index = _strstr(all, old, index);
+        if (index == -1)
+            break ;
+        all.erase(index, old.length());
+        all.insert(index, _new);
+        index += _new.length();
+    }
+    outfile.open(out.append(".replace"));
+    if (!outfile.is_open())
+        throw std::runtime_error("failed to open outfile");
+    outfile << all;
 }

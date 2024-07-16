@@ -6,7 +6,7 @@
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:37:43 by mmaila            #+#    #+#             */
-/*   Updated: 2024/06/01 15:05:55 by mmaila           ###   ########.fr       */
+/*   Updated: 2024/07/12 10:11:00 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 class Weapon
 {
 public :
-	Weapon(std::string type) : type(type) {}
-	const	std::string& getType();
+	Weapon(std::string weapon);
+	~Weapon();
+	const	std::string& getType( void );
 	void	setType(std::string newType);
 
 private :
