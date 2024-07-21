@@ -6,7 +6,7 @@
 #    By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 15:35:00 by mmaila            #+#    #+#              #
-#    Updated: 2024/06/04 18:15:02 by mmaila           ###   ########.fr        #
+#    Updated: 2024/07/20 20:49:06 by mmaila           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS= main.cpp Fixed.cpp
 
 OBJS= $(SRCS:.cpp=.o)
 
-NAME= fixed
+NAME= Fixed
 
 all : $(NAME)
 

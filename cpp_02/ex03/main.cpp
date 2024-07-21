@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaila <mmaila@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 08:52:06 by mmaila            #+#    #+#             */
-/*   Updated: 2024/07/15 09:29:50 by mmaila           ###   ########.fr       */
+/*   Created: 2024/07/15 09:35:52 by mmaila            #+#    #+#             */
+/*   Updated: 2024/07/21 12:37:15 by mmaila           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include "Point.hpp"
 
-# include <iostream>
-
-class Fixed
+int main( void )
 {
-public :
-	Fixed();
-	Fixed(const Fixed& fixed);
-	Fixed& operator=(const Fixed& fixed);
-	~Fixed();
-	int	getRawBits( void ) const;
-	void setRawBits( int const raw );
-private :
-	int					value;
-	static const int	bits = 8;
+	Point a(4, 12.5);
+	Point b(11.5, 5);
+	Point c(4, 5);
 
-};
-
-#endif
+	Point x(8, 8);
+	bsp(a, b, c, x) ? std::cout << "The point is inside the triangle" << std::endl : std::cout << "The point is NOT inside the triangle" << std::endl;
+	
+}
