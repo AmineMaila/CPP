@@ -34,7 +34,7 @@ AForm	*Intern::makeForm(std::string name, std::string target)
 	};
 
 	int i = 0;
-	while (name != forms[i])
+	while (i < 3 && name != forms[i])
 		i++;
 
 	int j = 0;
@@ -49,6 +49,8 @@ AForm	*Intern::makeForm(std::string name, std::string target)
 		std::cout << "Intern creates " << _forms[i]->getName() << std::endl;
 		return (_forms[i]);
 	}
-	std::cout << "Intern couldn't create " << name << std::endl;
+	throw (Intern::CouldNotCreateFormException());
 	return (NULL);
 }
+
+const char * Intern::CouldNotCreateFormException::what() const throw() {return ("Couldn't create form");}

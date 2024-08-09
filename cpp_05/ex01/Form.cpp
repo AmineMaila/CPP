@@ -3,9 +3,9 @@
 
 Form::~Form() {}
 
-Form::Form() : name(""), _signed(false), signGrade(42), execGrade(0) {}
+Form::Form() : name(""), _signed(false), signGrade(150), execGrade(150) {}
 
-Form::Form(std::string name, int signGrade) : name(name),  _signed(false), signGrade(signGrade), execGrade(0)
+Form::Form(std::string name, int signGrade) : name(name),  _signed(false), signGrade(signGrade), execGrade(150)
 {
 	if (this->signGrade > 150)
 		throw Form::GradeTooLowException();
@@ -47,7 +47,7 @@ const int& Form::getExecGrade(void) const
 
 std::ostream& operator<<(std::ostream& out, const Form& c1)
 {
-	out << "name : " << c1.getName() << ", sign grade : " << c1.getSignGrade() << ", sign status : " << c1.getSigned() << ", exec grade : " << c1.getExecGrade();
+	out << "name : " << c1.getName() << " | sign grade : " << c1.getSignGrade() << " | exec grade : " << c1.getExecGrade() << " | sign status : " << c1.getSigned();
 	return (out);
 }
 

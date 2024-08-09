@@ -3,7 +3,7 @@
 
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat() : name(""), grade(0){}
+Bureaucrat::Bureaucrat() : name(""), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
@@ -65,7 +65,7 @@ void Bureaucrat::signForm(Form& b)
 	}
 	catch (std::exception& err)
 	{
-		std::cerr << this->name << " couldn't sign " << b.getName() << " : " << err.what() << std::endl;
+		std::cerr << this->name << " couldn't sign " << b.getName() << " because " << err.what() << std::endl;
 	}
 }
 

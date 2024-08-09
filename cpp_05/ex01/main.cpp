@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <exception>
 
 int main()
 {
@@ -14,22 +15,8 @@ int main()
 		bureau1.signForm(f);
 		bureau2.signForm(f);
 		bureau3.signForm(f);
-		f.beSigned(bureau1);
-		f.beSigned(bureau3);
 	}
-	catch (Bureaucrat::GradeTooHighException& err)
-	{
-		std::cerr << "exception caught : " << err.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& err)
-	{
-		std::cerr << "exception caught : " << err.what() << std::endl;
-	}
-	catch (Form::GradeTooHighException& err)
-	{
-		std::cerr << "exception caught : " << err.what() << std::endl;
-	}
-	catch (Form::GradeTooLowException& err)
+	catch (std::exception& err)
 	{
 		std::cerr << "exception caught : " << err.what() << std::endl;
 	}

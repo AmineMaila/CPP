@@ -9,11 +9,7 @@ int main()
 		std::cout << bureau << std::endl;
 		bureau.decGrade();
 	}
-	catch (Bureaucrat::GradeTooHighException& err)
-	{
-		std::cerr << "exception caught : " << err.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException& err)
+	catch (std::exception& err)
 	{
 		std::cerr << "exception caught : " << err.what() << std::endl;
 	}
