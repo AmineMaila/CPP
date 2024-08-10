@@ -1,6 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <cctype>
-#include <limits>
 
 void	putChar(double src)
 {
@@ -28,24 +26,17 @@ void	putInt(double src)
 
 void	putFloat(double src)
 {
+	float	res = static_cast<float>(src);
 	std::cout << "float: ";
-	if (src == std::numeric_limits<double>::infinity())
-		std::cout << "+inff" << std::endl;
-	else if (src == -std::numeric_limits<double>::infinity())
-		std::cout << "-inff" << std::endl;
-	else if (src >= static_cast<double>(std::numeric_limits<float>::lowest())
-		&& src <= static_cast<double>(std::numeric_limits<float>::max()))
-		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(src) << 'f' << std::endl;
-	else
-		std::cout << "impossible" << std::endl;
+	if (isinf(res) && !signbit(res))
+		std::cout << "+";
+	std::cout << std::fixed << std::setprecision(1) << res << 'f' << std::endl;;
 }
 
 void		putDouble(double src)
 {
 	std::cout << "double: ";
-	if (src == std::numeric_limits<double>::infinity())
+	if (isinf(src) && !signbit(src))
 		std::cout << "+";
-	else if (src == -std::numeric_limits<double>::infinity())
-		std::cout << "-";
 	std::cout << std::fixed << std::setprecision(1) << src << std::endl;
 }

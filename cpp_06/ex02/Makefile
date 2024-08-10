@@ -2,18 +2,18 @@ CPP= c++
 
 FLAGS= -Wall -Werror -Wextra
 
-SRCS= main.cpp putType.cpp ScalarConverter.cpp
+SRCS= main.cpp Base.cpp
 
 OBJS= $(SRCS:.cpp=.o)
 
-NAME= convert
+NAME= identify
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp ./ScalarConverter.hpp
+%.o : %.cpp ./Base.hpp ./A.hpp ./B.hpp ./C.hpp
 	$(CPP) $(FLAGS) -c $< -o $@
 
 clean :

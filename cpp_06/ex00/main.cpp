@@ -1,5 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <exception>
 
 int main(int ac, char **av)
 {

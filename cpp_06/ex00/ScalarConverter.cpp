@@ -1,5 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <limits>
 
 ScalarConverter::~ScalarConverter() {}
 
@@ -22,14 +21,11 @@ void	ScalarConverter::convert(std::string value)
 	double	res;
 	char	*p = NULL;
 
-	if (value == "+inf" || value == "+inff")
-		res = std::numeric_limits<double>::infinity();
+	if (value.length() == 1 && !std::isdigit(*val) && std::isprint(static_cast<unsigned char>(*val)))
+		res = static_cast<double>(*val);
 	else
 	{
-		if (value.length() == 1 && !std::isdigit(*val) && std::isprint(static_cast<unsigned char>(*val)))
-			res = static_cast<double>(*val);
-		else
-			res = std::strtod(val, &p);
+		res = std::strtod(val, &p);
 		if ((*p && *p != 'f') || (*p == 'f' && *(p + 1)))
 			throw TypeInvalidException();
 	}
